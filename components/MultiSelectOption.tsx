@@ -6,6 +6,7 @@ type MultiSelectOptionProps = {
   handleListItemClick: (e: MouseEvent<HTMLLIElement>, product: ProductType) => void;
   isFocused: boolean;
 };
+
 const MultiSelectOption = ({product, handleListItemClick, isFocused}: MultiSelectOptionProps) => {
   // Ref used to access individual item
   const ref = useRef<HTMLLIElement>(null);

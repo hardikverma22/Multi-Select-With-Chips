@@ -1,16 +1,13 @@
 import {MouseEvent} from "react";
 
-const MultiSelectChip = ({
-  id,
-  title,
-  remove,
-  shouldHighlight,
-}: {
+type MultiSelectChipProps = {
   id: number;
   title: string;
   remove: (e: MouseEvent<HTMLButtonElement>, id: number) => void;
   shouldHighlight: boolean;
-}) => {
+};
+
+const MultiSelectChip = ({id, title, remove, shouldHighlight}: MultiSelectChipProps) => {
   return (
     <div
       key={id}

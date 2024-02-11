@@ -1,17 +1,15 @@
 import {MouseEvent, useEffect, useRef} from "react";
 import {ProductType} from "../lib/types";
 import MultiSelectOption from "./MultiSelectOption";
-const MultiSelectOptions = ({
-  products,
-  show,
-  add,
-  selectedIndex,
-}: {
+
+type MultiSelectOptionsProps = {
   products: ProductType[];
   show: boolean;
   add: (product: ProductType) => void;
   selectedIndex: number;
-}) => {
+};
+
+const MultiSelectOptions = ({products, show, add, selectedIndex}: MultiSelectOptionsProps) => {
   if (!show) return null;
 
   const handleListItemClick = (e: MouseEvent<HTMLLIElement>, product: ProductType) => {
@@ -22,7 +20,7 @@ const MultiSelectOptions = ({
 
   return (
     <div
-      className="mt-2 shadow-md rounded-xl p-1 w-3/4 bg-white h-80 overflow-y-scroll"
+      className="mt-2 shadow-md rounded-xl p-1 w-full bg-white max-h-80 overflow-auto"
       onMouseDown={(e) => e.preventDefault()}
     >
       <ul className="flex flex-col gap-2">

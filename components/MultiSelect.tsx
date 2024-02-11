@@ -2,7 +2,6 @@
 
 import {useRef} from "react";
 
-import MultiSelectChip from "./MultiSelectChip";
 import MultiSelectOptions from "./MultiSelectOptions";
 import {ProductType} from "../lib/types";
 import useMultiSelect from "../hooks/useMultiSelect";
@@ -28,6 +27,7 @@ const MultiSelect = ({
     filteredProductsList,
     selectedIndex,
   } = useMultiSelect(productsList, selectedItems);
+
   //ref
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -39,10 +39,11 @@ const MultiSelect = ({
   };
 
   return (
-    <div className="flex flex-col w-full items-center justify-center">
-      <h2 className="mb-5 font-bold text-xl text-stone-600">Custom Select with Chips</h2>
+    <div className="flex flex-col items-start justify-start w-full">
+      <h1 className="font-bold text-xl tracking-wide text-gray-600 mb-5">Search Products</h1>
+
       <div
-        className="rounded-md shadow-md w-3/4
+        className="rounded-md shadow-md w-full
                     flex gap-2 justify-start items-center
                     flex-wrap p-1.5
                     bg-white
@@ -58,13 +59,13 @@ const MultiSelect = ({
         <input
           ref={inputRef}
           type="text"
-          className="min-w-[50%]
+          className="min-w-[30%]
                     flex-1 ml-1
                     placeholder:text-sm placeholder:font-sans
                     rounded-md
                     border-none bg-none outline-none
                     p-0.5"
-          placeholder="Search..."
+          placeholder="Search or click to see all options"
           value={searchValue}
           onChange={handleOnChange}
           onKeyDown={handleKeyDown}

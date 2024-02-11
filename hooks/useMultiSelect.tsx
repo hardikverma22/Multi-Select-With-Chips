@@ -20,8 +20,12 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
   };
 
   const enterHandler = () => {
+    if (searchValue.length === 0 && !showList) {
+      return;
+    }
     setSelectedProducts((state) => [...state, filteredProductsList[selectedIndex]]);
     setSearchValue("");
+    setShowList(false);
   };
 
   const backspaceHandler = () => {
@@ -65,6 +69,7 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
     setSelectedIndex(0);
+    setShowList(true);
   };
 
   const remove = (e: MouseEvent<HTMLButtonElement>, id: number) => {
