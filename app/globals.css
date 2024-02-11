@@ -26,3 +26,27 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(211, 212, 219);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(109, 120, 196);
+  border-radius: 14px;
+}
+
+/* Hide the up arrow button */
+::-webkit-scrollbar-button:start {
+  display: none;
+}
+
+/* Hide the down arrow button */
+::-webkit-scrollbar-button:end {
+  display: none;
+}
