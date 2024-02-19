@@ -78,6 +78,7 @@ const MultiSelect = ({
         show={showList && filteredProductsList.length > 0}
         add={add}
         selectedIndex={selectedIndex}
+        setShowList={setShowList}
       />
     </div>
   );

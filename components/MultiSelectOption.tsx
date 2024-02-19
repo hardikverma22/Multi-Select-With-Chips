@@ -19,6 +19,7 @@ const MultiSelectOption = ({product, handleListItemClick, isFocused}: MultiSelec
       ref.current.scrollIntoView({behavior: "auto", block: "nearest"});
     }
   }, [isFocused]);
+
   return (
     <li
       ref={ref}

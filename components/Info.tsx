@@ -21,7 +21,15 @@ const Info = () => {
         </li>
         <li className="flex gap-1 items-center justify-start">
           <RightIcon />
+          <span>Ctrl + Enter - Keep Selecting the Highlighted Item</span>
+        </li>
+        <li className="flex gap-1 items-center justify-start">
+          <RightIcon />
           <span>Backspace - select he last chips and Remove it</span>
+        </li>
+        <li className="flex gap-1 items-center justify-start">
+          <RightIcon />
+          <span>Ctrl + Click - Multi Select Items</span>
         </li>
       </ul>
 

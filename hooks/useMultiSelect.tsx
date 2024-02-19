@@ -19,13 +19,15 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
     setSelectedIndex((i) => (i < filteredProductsList.length - 1 ? i + 1 : 0));
   };
 
-  const enterHandler = () => {
+  const enterHandler = (ctrlKey: boolean) => {
+    if (filteredProductsList.length <= 0) return;
     if (searchValue.length === 0 && !showList) {
+      setShowList(true);
       return;
     }
     setSelectedProducts((state) => [...state, filteredProductsList[selectedIndex]]);
     setSearchValue("");
-    setShowList(false);
+    setShowList(ctrlKey);
   };
 
   const backspaceHandler = () => {
@@ -39,8 +41,6 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
   };
 
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
-    console.log(e);
-
     switch (e.key) {
       case "ArrowUp":
         e.preventDefault();
@@ -53,8 +53,9 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
         return true;
 
       case "Enter":
+        console.log(e);
         e.preventDefault();
-        enterHandler();
+        enterHandler(e.ctrlKey);
         return true;
 
       case "Backspace":
@@ -80,7 +81,7 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
   const add = (product: ProductType) => {
     setSelectedProducts((state) => [...state, product]);
     setSearchValue("");
-    setShowList(false);
+    // setShowList(false);
   };
 
   useEffect(() => {
