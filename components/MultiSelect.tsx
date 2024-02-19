@@ -59,6 +59,8 @@ const MultiSelect = ({
         <input
           ref={inputRef}
           type="text"
+          id="search-input"
+          name="search-input"
           className="min-w-[30%]
                     flex-1 ml-1
                     placeholder:text-sm placeholder:font-sans

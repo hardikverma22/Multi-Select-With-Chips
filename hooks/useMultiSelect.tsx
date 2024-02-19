@@ -81,19 +81,7 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
   const add = (product: ProductType) => {
     setSelectedProducts((state) => [...state, product]);
     setSearchValue("");
-    // setShowList(false);
   };
-
-  useEffect(() => {
-    if (selectedProducts.length == 0) {
-      setFilteredProductList(productsList);
-      return;
-    }
-    const arr = productsList.filter(
-      (item1) => !selectedProducts.some((item2) => item1.id == item2.id)
-    );
-    setFilteredProductList(arr);
-  }, [selectedProducts]);
 
   const validfilteredList = useMemo(
     () => productsList.filter((item1) => !selectedProducts.some((item2) => item1.id == item2.id)),
@@ -109,7 +97,7 @@ const useMultiSelect = (productsList: ProductType[], selectedItems: ProductType[
       option.title.toLocaleLowerCase().includes(searchValue.toLowerCase())
     );
     setFilteredProductList(filteredList);
-  }, [searchValue]);
+  }, [searchValue, validfilteredList]);
 
   return {
     showList,
